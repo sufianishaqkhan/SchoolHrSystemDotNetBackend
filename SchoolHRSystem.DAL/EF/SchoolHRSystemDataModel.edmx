@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SchoolHRDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="School_ID" Type="int" />
+          <Property Name="Employee_Code" Type="varchar" MaxLength="20" />
+          <Property Name="Employee_Name" Type="varchar" MaxLength="100" />
+          <Property Name="CNIC" Type="varchar" MaxLength="20" />
+          <Property Name="Email_Address" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile_No" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Modified_By" Type="int" />
+          <Property Name="Modified_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Schools">
+          <Key>
+            <PropertyRef Name="School_ID" />
+          </Key>
+          <Property Name="School_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="School_Name" Type="varchar" MaxLength="200" />
+          <Property Name="School_SEMIS_Code" Type="varchar" MaxLength="50" />
+          <Property Name="School_Level" Type="varchar" MaxLength="20" />
+          <Property Name="School_Gender" Type="varchar" MaxLength="10" />
+          <Property Name="District" Type="varchar" MaxLength="20" />
+          <Property Name="Longitude" Type="varchar" MaxLength="50" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" />
+          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Modified_By" Type="int" />
+          <Property Name="Modified_Date" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="SchoolHRDbModelStoreContainer">
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schools" EntityType="Self.Schools" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SchoolHRDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="School_ID" Type="Int32" />
+          <Property Name="Employee_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CNIC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile_No" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_By" Type="Int32" />
+          <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="School_ID" />
+          </Key>
+          <Property Name="School_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="School_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="School_SEMIS_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="School_Level" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="School_Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_By" Type="Int32" />
+          <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="SchoolHRDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Schools" EntityType="Self.School" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SchoolHRDbModelStoreContainer" CdmEntityContainer="SchoolHRDbEntities">
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="SchoolHRDbModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="School_ID" ColumnName="School_ID" />
+                <ScalarProperty Name="Employee_Code" ColumnName="Employee_Code" />
+                <ScalarProperty Name="Employee_Name" ColumnName="Employee_Name" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="Email_Address" ColumnName="Email_Address" />
+                <ScalarProperty Name="Mobile_No" ColumnName="Mobile_No" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="SchoolHRDbModel.School">
+              <MappingFragment StoreEntitySet="Schools">
+                <ScalarProperty Name="School_ID" ColumnName="School_ID" />
+                <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+                <ScalarProperty Name="School_SEMIS_Code" ColumnName="School_SEMIS_Code" />
+                <ScalarProperty Name="School_Level" ColumnName="School_Level" />
+                <ScalarProperty Name="School_Gender" ColumnName="School_Gender" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
